@@ -1,0 +1,26 @@
+service: email-service2
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-1
+  environment:
+    SENDER_EMAIL: nehachoudhary0731@gmail.com  #here we put our ses verified e mail
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ses:SendEmail
+      Resource: '*'
+
+plugins:
+  - serverless-offline
+
+functions:
+  sendEmail:
+    handler: handler.send_email
+    events:
+      - http:
+          path: /send
+          method: post
+          cors: true

@@ -1,0 +1,11 @@
+{
+  "name": "email-service2",
+  "version": "1.0.0",
+  "description": "Serverless email service",
+  "scripts": {
+    "start": "serverless offline start"
+  },
+  "devDependencies": {
+    "serverless-offline": "^12.0.4"
+  }
+}
